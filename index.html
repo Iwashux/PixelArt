@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap" rel="stylesheet">
+
+    <title>Canvas</title>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://kit.fontawesome.com/842507e7f1.js" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style-flex.css">
+    <link rel="stylesheet" href="css/style-grid.css">
+</head>
+<body>
+    <div class="conteiner-pixelArt">
+        <nav>
+            <ul>
+                <button class="logo"><li>PixelManiatic</li></button>
+                <button><li>New</li></button>
+                <button><li>Import</li></button>
+                <button><li>Export</li></button>
+                
+            </ul>
+        </nav>
+
+        <main id="pixelArt">
+            <div id="options">
+                <div class="group">
+                    <div id="actions">
+                        <i id="paint" class="fa-solid fa-pencil"></i>
+                        <i id="eraser" class="fa-solid fa-eraser"></i>
+                    </div>
+
+                    <div class="indicator">
+                        <i class="fa-solid fa-caret-down"></i><i class="fa-solid fa-caret-down"></i>
+                    </div>
+
+                    <div id="mouse-icon">
+                        <svg id="mouse-left" class="mouse" width="100" height="162" viewBox="0 0 100 162" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path class="left-click" d="M2 50.0169V58H46V47.7101C43.1085 46.8496 41 44.171 41 41V27C41 23.829 43.1085 21.1504 46 20.2899V2.15949C26.9644 4.11306 2.00002 19.5985 2 50.0169Z" fill="#2F2F2F" stroke="white" stroke-width="4"/>
+                            <path class="scroll" d="M47 39V29C47 27.3431 48.3431 26 50 26C51.6569 26 53 27.3431 53 29V39C53 40.6569 51.6569 42 50 42C48.3431 42 47 40.6569 47 39Z" fill="#070707" stroke="white" stroke-width="2"/>
+                            <path class="right-click" d="M98 50.0686V58H54V47.7101C56.8915 46.8496 59 44.171 59 41V27C59 23.829 56.8915 21.1504 54 20.2899V2.21125C73.0356 4.16482 98 19.6503 98 50.0686Z" fill="white" stroke="white" stroke-width="4"/>
+                            <path class="back-mouse" fill-rule="evenodd" clip-rule="evenodd" d="M0.000488281 111.931C0.000507699 146 30 162 50 162C70 162 100.001 146 100.001 111.931V64H0.000488281V111.931Z" fill="white"/>
+                        </svg>
+                        
+                        <svg id="mouse-right" class="mouse" width="100" height="162" viewBox="0 0 100 162" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path class="left-click" d="M2 50.0169V58H46V47.7101C43.1085 46.8496 41 44.171 41 41V27C41 23.829 43.1085 21.1504 46 20.2899V2.15949C26.9644 4.11306 2.00002 19.5985 2 50.0169Z" fill="white" stroke="white" stroke-width="4"/>
+                            <path class="scroll" d="M47 39V29C47 27.3431 48.3431 26 50 26C51.6569 26 53 27.3431 53 29V39C53 40.6569 51.6569 42 50 42C48.3431 42 47 40.6569 47 39Z" fill="#070707" stroke="white" stroke-width="2"/>
+                            <path class="right-click" d="M98 50.0686V58H54V47.7101C56.8915 46.8496 59 44.171 59 41V27C59 23.829 56.8915 21.1504 54 20.2899V2.21125C73.0356 4.16482 98 19.6503 98 50.0686Z" fill="2F2F2F" stroke="white" stroke-width="4"/>
+                            <path class="back-mouse" fill-rule="evenodd" clip-rule="evenodd" d="M0.000488281 111.931C0.000507699 146 30 162 50 162C70 162 100.001 146 100.001 111.931V64H0.000488281V111.931Z" fill="white"/>
+                        </svg>                        
+                    </div>
+                </div>
+
+                <div class="group">
+                    <div class="color-comparator">
+                        <div id="current-color" style="background-color: black;"></div>
+                        <div id="old-color" style="background-color: white;"></div>
+                    </div>
+
+                    <input type="color" id="pen-color" name="pen-color">
+                </div>
+
+                <div class="group">
+                    <div>
+                        <label for="row">
+                            <span>row</span>
+                            <input class="size" id="row" type="number">
+                        </label>
+                        
+                    </div>
+
+                    <div>
+                        <label for="column">
+                            <span>column</span>
+                            <input class="size" id="column" type="number">
+                        </label>
+                    </div>
+                </div>
+
+                <div class="group">
+                    <div>
+                        <div id="centered">
+                            <div></div>
+                            <div class="vertical active" direction='top'><div></div></div>
+                            <div></div>
+
+                            <div class="horizontal active" direction='left'><div></div></div>
+                            <div><span class="fa-regular fa-star"></span></div>
+                            <div class="horizontal" direction='right'><div></div></div>
+                            
+                            <div></div>
+                            <div class="vertical" direction='bottom'><div></div></div>
+                            <div></div>
+                        </div>
+                    </div>
+                    
+                </div>
+                
+            </div>
+            <div class="c-canvas">
+                <div id="canvas" class="flex"></div>
+            </div>
+        </main>
+
+    </div>
+    
+    <script src="js/script-flex.js"></script>
+    <!-- <script src="js/script-grid.js"></script> -->
+    <script src="js/script.js"></script>
+    <!-- <script>src="js/addCanvas.js"</script> -->
+</body>
+</html>

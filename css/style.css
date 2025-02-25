@@ -1,0 +1,174 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Pixelify Sans", sans-serif;
+    color: white;
+}
+
+li {
+    list-style: none;
+    cursor: pointer;
+}
+
+a {
+    text-decoration: none;
+}
+
+input {
+    background-color: #2f2f2f;
+    border: none;
+    width: 100%;
+    min-height: 27px;
+}
+
+input:not([type='color']) {
+    padding: 5px 0 5px 10px;
+}
+
+body {
+    background-color: black;
+}
+
+.conteiner-pixelArt {
+    height: 100vh;
+    max-height: 100vh;
+    max-width: 1200px;
+    margin: auto;
+    overflow: hidden;
+}
+
+nav {
+    background-color: #181818;
+    height: 60px;
+}
+
+nav .logo {
+    padding: 15px;
+    font-size: 1.5em;
+}
+
+nav ul {
+    display: flex;
+    align-items: stretch;
+    gap: 15px;
+}
+
+nav ul button {
+    background-color: transparent;
+    border: none;
+    display: flex;
+    align-items: center;
+    padding: auto 15px;
+    padding: 0 15px;
+    transition: 0.5s ease-in-out all;
+}
+
+nav ul button:hover {
+    background-color: #2f2f2f;
+}
+
+main {
+    height: calc(100vh - 60px);
+    display: flex;
+    background-color: #1f1f1f;
+}
+
+#options {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 15px;
+    height: 100%;
+    width: 140px;
+    min-width: 140px;
+    background-color: #181818;
+    gap: 50px;
+}
+
+#options i {
+    font-size: 28px;
+    cursor: pointer;
+    transition: 0.3s ease-in-out all;
+}
+
+
+#options .group > div {
+    display: flex;
+    padding: 5px 0;
+    justify-content: space-evenly;
+}
+
+.mouse {
+    height: 50px;
+}
+
+.indicator {
+    justify-content: space-around !important;
+}
+
+.c-canvas {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.color-comparator div {
+    height: 30px;
+    width: 100%;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+}
+
+#current-color {
+    border-left: 1px solid black;
+}
+
+#old-color {
+    border-right: 1px solid black;
+}
+
+
+/* sujecion del dibujo */
+#centered {
+    height: 75px;
+    width: 75px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    align-items: center;
+    justify-items: center;
+    border: solid 1px white;
+    box-sizing: border-box;
+}
+
+#centered .vertical > div {
+    position: relative;
+    width: 1px;
+    height: 100%;
+    background-color: white;
+    border-radius: 50px;
+}
+
+#centered .horizontal > div {
+    width: 100%;
+    height: 1px;
+    background-color: white;
+    border-radius: 50px;
+}
+
+#centered .vertical, #centered .horizontal {
+    cursor: pointer;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px;
+}
+
+#centered .active > div {
+    border: 2px solid white;
+}

@@ -1,0 +1,21 @@
+#canvas.flex {
+    padding: 20px;
+}
+
+#canvas.flex .row {
+    display: flex;
+}
+
+#canvas.flex .row > div {
+    height: 30px;
+    width: 30px;
+    background-color: white;
+}
+
+#canvas.flex .row.even > div:nth-child(even), #canvas.flex .row.odd > div:nth-child(odd) {
+    background: #2f2f2f; /* Color de fondo para los elementos con índices pares */
+}
+
+#canvas.flex .row.even > div:nth-child(odd), #canvas.flex .row.odd > div:nth-child(even) {
+    background-color: #242424; /* Color de fondo para los elementos con índices impares */
+}

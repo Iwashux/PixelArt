@@ -1,60 +1,22 @@
-$(document).ready(function() {
-    let column = 16; // column quantity a
-    let row = 16; // row quantity
-
-    let newColor="#000"; // curret color
-
-    let aux = 'odd'; // type number (odd/even)
-
-    let directionVertical = "top"; // direction add row
-    let directionHorizontal = "left"; // direction add column
-
-    // generate canvas
+$(document).ready(function(){
+// generate canvas
     function getCanvasFlex(){
         let canvas=""; // insert canvas
 
         for (let i = 0; i < row; i++) {
-            canvas+="<div class='row "+aux+"'>"; // generate row
+            canvas+="<section class='row "+aux+"'>"; // generate row
             aux == 'odd' ? aux = 'even' : aux = 'odd'; // generate type number
             for (let j = 0; j < column; j++) { 
                 canvas += "<div></div>"; // generate frame
             }
-            canvas+="</div>"; // close row
+            canvas+="</section>"; // close row
         }
 
         // insert canvas
         $("#canvas.flex").html(canvas);
     }getCanvasFlex();
 
-    // insert val input
-    $("#row").val(row);
-    $("#column").val(column);
 
-    // select color
-    $("#pen-color").on('input', function() {
-        newColor = $(this).val(); // save color
-        $("#current-color").css("background-color", newColor); // view color
-    });
-
-    // paint frame of canvas
-    function paint(){
-        $(".row div").on('click', function(event) { // select frame
-            $(this).attr('data-color', newColor).css("background-color", newColor); // get color and paint
-            $("#old-color").css("background", newColor); // set current color in the view 
-        });
-    }
-
-    // para borrar
-    function eraser(){
-        $(".row div").on('contextmenu', function(event) {
-            event.preventDefault();
-            $(this).removeAttr("style").removeAttr('data-color');
-        });
-    }
-
-    paint(); // function for paint canvas
-    eraser();
-    
     // max number of frames for the canvas
     $("#canvas.flex-size .size").on("input", function() {
         let valor = parseInt($(this).val()); // get number 
@@ -103,11 +65,11 @@ $(document).ready(function() {
                 }
                 // agrega clases, sirve para los colores del fondo del lienso
                 $("#canvas.flex "+(selectRow ? selectRow : selectRowAux)).hasClass('odd') ? aux = 'even' : aux = 'odd'; 
-                let newCanvas="<div class='row "+aux+"'>"; // genera la fila
+                let newCanvas="<section class='row "+aux+"'>"; // genera la fila
                 for (let j = 0; j < column; j++) {
                     newCanvas+="<div></div>";
                 }
-                newCanvas+="</div>"
+                newCanvas+="</section>"
                 // valida la centralizacion del dibujo
                 if (selectRow == ".row:first" || (!selectRow && selectRowAux == ".row:first")) {
                     $("#canvas.flex").prepend(newCanvas); // agrega al principio
@@ -117,7 +79,6 @@ $(document).ready(function() {
             }
         }
         row = newRow; // cambia el valor de las filas actuales
-        paint() // function for paint canvas
     });
 
     // cambio de tamanio para las columnas dependiendo de la direccion (verticales)
@@ -163,29 +124,7 @@ $(document).ready(function() {
             }
         }
         column = newColumn;
-
-        paint()
     });
-
-    // let timer;
-    // $(".row div").on('mousedown', function() {
-    //     let conteiner = $(this);
-    //     timer = setTimeout(function(){
-    //         conteiner.removeClass();
-    //         if (color != "white") {
-    //             conteiner.addClass(color);
-    //         }
-    //     }, 100);
-    // });
-
-    // $("#modal div").on("mousedown", function() {
-    //     let div = $(this);
-    //     intervalo = setInterval(function() {
-    //         div.removeClass();
-    //     }, 100); // Intervalo de tiempo en milisegundos para eliminar las clases repetidamente
-    // }).on("mouseup mouseleave", function() {
-    //     clearInterval(intervalo); // Limpiar el intervalo cuando se suelta el botón del ratón o se sale del área
-    // });
 
     // 
     $('#centered .vertical, #centered .horizontal').on('click', function(){
@@ -205,9 +144,9 @@ $(document).ready(function() {
         }
     });
 
-    $('#flex-mode').on('click', function(){
-        $('#canvas').removeClass();
-        $('#canvas').addClass('flex');
-        getCanvasFlex();
-    });
+    // $('#flex-mode').on('click', function(){
+    //     $('#canvas').removeClass();
+    //     $('#canvas').addClass('flex');
+    //     getCanvasFlex();
+    // });
 });

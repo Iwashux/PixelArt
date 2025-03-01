@@ -48,6 +48,11 @@ nav .logo {
     font-size: 1.5em;
 }
 
+nav button:not(.logo) {
+    font-size: 1rem;
+    cursor: pointer;
+}
+
 nav ul {
     display: flex;
     align-items: stretch;
@@ -78,7 +83,6 @@ main {
     padding: 20px;
     display: flex;
     flex-direction: column;
-    border-radius: 15px;
     height: 100%;
     width: 140px;
     min-width: 140px;
@@ -171,4 +175,17 @@ main {
 
 #centered .active > div {
     border: 2px solid white;
+}
+
+.loading, .spin-icon.animating {
+    animation: spin 1.5s infinite cubic-bezier(0.7, 0, 0.3, 1) !important;
+}
+
+@keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
 }

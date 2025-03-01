@@ -8,10 +8,11 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap" rel="stylesheet">
 
-    <title>Canvas</title>
+    <title>PixelManiatic</title>
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://kit.fontawesome.com/842507e7f1.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dom-to-image/2.6.0/dom-to-image.min.js"></script>
 
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/style-flex.css">
@@ -22,9 +23,9 @@
         <nav>
             <ul>
                 <button class="logo"><li>PixelManiatic</li></button>
-                <button><li>New</li></button>
-                <button><li>Import</li></button>
-                <button><li>Export</li></button>
+                <button><li><i class="fa-regular fa-file"></i> <span>New</span></li></button>
+                <button id="btn-download"><li><i class="fa-solid fa-upload"></i> <span>Export</span></li></button>
+                <button><li><i class="fa-solid fa-download"></i> <span>Import</span></li></button>
                 
             </ul>
         </nav>
@@ -85,7 +86,7 @@
                 </div>
 
                 <div class="group">
-                    <div>
+                    <div title="centralizer">
                         <div id="centered">
                             <div></div>
                             <div class="vertical active" direction='top'><div></div></div>
@@ -113,6 +114,7 @@
     
     <script src="js/script-flex.js" defer></script>
     <script src="js/script.js" defer></script>
+    <script src="js/download-img.js" defer></script>
     <!-- <script src="js/script-grid.js"></script> -->
     <!-- <script>src="js/addCanvas.js"</script> -->
 </body>

@@ -1,4 +1,4 @@
-# Pixel Art Canvas
+# Pixel Art
 
 ## Descripción
 
